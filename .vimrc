@@ -29,7 +29,6 @@ set ruler               " 标尺?
 set incsearch           " 实时搜索 键入时光标跳转到当前的最优匹配
 set ignorecase          " 大小写不敏感搜索
 
-
 set foldmethod=syntax
 set nofoldenable
 
