@@ -1,0 +1,60 @@
+" NERDTree
+" https://github.com/scrooloose/nerdtree
+
+" 让它看起来更好看
+let NERDChristmasTree = 0
+
+" 窗口宽度
+let NERDTreeWinSize = 35
+
+" 让文件看起来更加有序
+let NERDTreeCaseSensitiveSort = 1
+
+let NERDTreeChDirMode = 3
+
+" 显示文件过滤
+let NERDTreeIgnore = ['\~$', '\.pyc$', '\.swp$']
+
+" 是否显示Bookmark
+let NERDTreeShowBookmarks = 1
+
+" 窗口所在位置
+let NERDTreeWinPos = "left"
+
+" 显示隐藏文件
+let NERDTreeShowHidden = 1
+
+" 删除文件时自动删除其对应的buffer
+let NERDTreeAutoDeleteBuffer = 1
+
+let g:nerdtree_tabs_open_on_gui_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 1
+
+" 未展开的目录
+let g:NERDTreeDirArrowExpandable = '+'
+
+" 已展开的目录
+let g:NERDTreeDirArrowCollapsible = '-'
+
+"let g:NERDTreeIndicatorMapCustom = {
+"    \ "Modified"  : "✹",
+"    \ "Staged"    : "✚",
+"    \ "Untracked" : "✭",
+"    \ "Renamed"   : "➜",
+"    \ "Unmerged"  : "═",
+"    \ "Deleted"   : "✖",
+"    \ "Dirty"     : "✗",
+"    \ "Clean"     : "✔︎",
+"    \ 'Ignored'   : '☒',
+"    \ "Unknown"   : "?"
+"    \ }
+
+"let g:NERDTreeShowIgnoredStatus = 1
+
+" 随 VIM 自动开启
+autocmd vimenter * if !argc() | NERDTree | endif
+" 若为最后一个窗口 则自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" <F2> NERDTree 开关映射
+nmap <F2> :NERDTreeToggle<cr>

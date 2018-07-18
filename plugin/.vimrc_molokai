@@ -1,0 +1,11 @@
+" 主题 颜色
+" https://github.com/tomasr/molokai
+
+" 底色
+set background=dark
+
+" 颜色主题
+colorschem molokai
+
+" 色域
+set t_Co=256

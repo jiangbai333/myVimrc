@@ -1,0 +1,20 @@
+" vim-indent-guides
+" https://github.com/nathanaelkane/vim-indent-guides 
+" 若使indent_guides_guide_size = 4，同时将主配置文件的 'set expandtab'、'set softtabstop=4'注释掉，那么缩进色块显示将会变成制表符的宽度
+
+" 随 VIM 自动启动
+let g:indent_guides_enable_on_vim_startup = 1
+
+" 从第二层开始显示缩进
+let g:indent_guides_start_level = 2
+
+" 显示缩进的纵向色块所占的字符宽度
+let g:indent_guides_guide_size = 1
+
+" 可按照喜好设置纵向色块的颜色
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg = red   ctermbg = 3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg = green ctermbg = 4
+
+" <Leader>i 开/关缩进
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
