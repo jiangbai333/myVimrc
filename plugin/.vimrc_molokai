@@ -9,3 +9,6 @@ colorschem molokai
 
 " 色域
 set t_Co=256
+
+" 关闭默认的代码着色
+syntax enable
