@@ -39,6 +39,9 @@ filetype on
 " 规避vi兼容问题
 set nocompatible
 
+" 设置backspace的工作方式： 
+set backspace=indent,eol,start
+
 " 禁止折行
 set nowrap
 
