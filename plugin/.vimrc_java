@@ -3,6 +3,8 @@
 "
 " <Ctrl-X><Ctrl-O> 呼出补全候选项
 "
+" 由于权限问题，插件运行阶段可能会报错，可将 /tmp/javavi_log/javavi_stdout.log 权限设置成 777
+"
 " 由于 Python 版本问题，插件运行阶段会报错：
 "       AttributeError: 'tuple' object has no attribute 'major'
 "
