@@ -1,0 +1,28 @@
+map <F5> :call CompileRunGcc()<CR>
+imap <F5> <ESC>:call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    
+    let rootpath = getcwd()
+    let classpath = getcwd(). "/src/"
+    let targetpath = getcwd(). "/target/"
+
+
+    exec "cd %:p:h"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'java' 
+        exec "cd ". classpath
+        exec "!javac -d ". targetpath. " com/**.java" 
+        exec "!cd ". targetpath. " && java %<"
+        exec "cd ". rootpath
+    elseif &filetype == 'sh'
+        :!./%
+    endif
+endfunc
+
+
+

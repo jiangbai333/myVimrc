@@ -1,0 +1,6 @@
+" html 自动补全
+" https://github.com/othree/html5.vim
+"
+" <Ctrl-X><Ctrl-O> 呼出补全候选项
+
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags

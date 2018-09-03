@@ -36,23 +36,23 @@ let g:NERDTreeDirArrowExpandable = '+'
 " 已展开的目录
 let g:NERDTreeDirArrowCollapsible = '-'
 
-"let g:NERDTreeIndicatorMapCustom = {
-"    \ "Modified"  : "✹",
-"    \ "Staged"    : "✚",
-"    \ "Untracked" : "✭",
-"    \ "Renamed"   : "➜",
-"    \ "Unmerged"  : "═",
-"    \ "Deleted"   : "✖",
-"    \ "Dirty"     : "✗",
-"    \ "Clean"     : "✔︎",
-"    \ 'Ignored'   : '☒',
-"    \ "Unknown"   : "?"
-"    \ }
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
-"let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeShowIgnoredStatus = 1
 
 " 随 VIM 自动开启
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 " 若为最后一个窗口 则自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

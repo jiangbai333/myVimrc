@@ -17,7 +17,12 @@ let $PLUGIN_TREE = $PLUGIN_DIR.".vimrc_tree"
 let $PLUGIN_TAGBAR = $PLUGIN_DIR.".vimrc_tagbar"
 let $PLUGIN_GUIDES = $PLUGIN_DIR.".vimrc_guides"
 let $PLUGIN_COMMENTER = $PLUGIN_DIR.".vimrc_commenter"
-let $PLUGIN_ULTISNIPS= $PLUGIN_DIR.".vimrc_ultisnips"
+let $PLUGIN_ULTISNIPS = $PLUGIN_DIR.".vimrc_ultisnips"
+let $PLUGIN_HTML5 = $PLUGIN_DIR.".vimrc_html5"
+let $PLUGIN_JAVA = $PLUGIN_DIR.".vimrc_java"
+
+" 编译脚本配置文件目录
+let $SCRIPTS_JAVACOMPILE = "~/.vim/rc/scripts/.vimrc_javacompile"
 
 " 开启文件类型检测
 filetype on
@@ -91,6 +96,19 @@ Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
 Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
 Plugin 'SirVer/ultisnips' "重复内容 模板补全 git clone https://github.com/honza/vim-snippets.git snp && mv snp/UltiSnips ~/.vim/bundle/ultisnips/usp && rm -rf snp
 Plugin 'posva/vim-vue' " Vue 高亮插件
+Plugin 'mhinz/vim-startify' "欢迎页面
+Plugin 'othree/html5.vim' " HTML5 自动补全
+Plugin 'jiangbai333/vim-javacomplete2' " Java 自动补全
+
+Plugin 'tpope/vim-fugitive' " GIT
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/gv.vim'
+
+Plugin 'ryanoasis/vim-devicons' "添加文件图标
+Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
+Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
+"Plugin 'prettier/vim-prettier' "代码美化
+"Plugin 'ervandew/screen' " screen 分屏 存在使用缺陷，暂时禁用
 
 call vundle#end()
 filetype plugin indent on
@@ -118,6 +136,18 @@ endif
 
 if filereadable(expand($PLUGIN_ULTISNIPS))
     source $PLUGIN_ULTISNIPS
+endif
+
+if filereadable(expand($PLUGIN_HTML5))
+    source $PLUGIN_HTML5
+endif
+
+if filereadable(expand($PLUGIN_JAVA))
+    source $PLUGIN_JAVA
+endif
+
+if filereadable(expand($SCRIPTS_JAVACOMPILE))
+    source $SCRIPTS_JAVACOMPILE
 endif
 
 "autocmd BufWritePost $MYVIMPLUGIN source $MYVIMPLUGIN
