@@ -4,6 +4,13 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+" tab键自动补全
+" imap <silent> <tab> <C-X><C-O>
+" ` 键自动补全
+imap <silent> ` <C-X><C-O>
+" 最优匹配
+set completeopt=longest,menu
+
 "解决consle输出乱码
 "language messages zh_CN.utf-8
 
