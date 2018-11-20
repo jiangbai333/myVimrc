@@ -1,11 +1,11 @@
-map <F5> :call CompileRun()<CR>
-imap <F5> <ESC>:call CompileRun()<CR>
-func! CompileRun()
+map <F6> :call CompileDebug()<CR>
+imap <F6> <ESC>:call CompileDebug()<CR>
+func! CompileDebug()
     
     let rootpath = getcwd()
     let classpath = getcwd(). "/src/"
     let targetpath = getcwd(). "/target/"
- 
+
     exec "cd %:p:h"
     if &filetype == 'c'
         exec "!g++ % -o %<"
@@ -15,8 +15,8 @@ func! CompileRun()
         exec "! ./%<"
     elseif &filetype == 'java' 
         exec "cd ". classpath
-        exec "!javac -d ". targetpath. " com/**.java" 
-        exec "!cd ". targetpath. " && java %<"
+        exec "!javac -d ". targetpath. " -g com/**.java" 
+        exec "!cd ". targetpath. " && jdb %<"
         exec "cd ". rootpath
     elseif &filetype == 'sh'
         :!./%

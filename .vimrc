@@ -30,6 +30,7 @@ let $PLUGIN_JAVA = $PLUGIN_DIR.".vimrc_java"
 
 " 编译脚本配置文件目录
 let $SCRIPTS_JAVACOMPILE = "~/.vim/rc/scripts/.vimrc_javacompile"
+let $SCRIPTS_JAVADEBUG= "~/.vim/rc/scripts/.vimrc_javadebug"
 
 " 开启文件类型检测
 filetype on
@@ -51,11 +52,14 @@ filetype on
 " 规避vi兼容问题
 set nocompatible
 
-" 设置backspace的工作方式： 
+" 设置backspace的工作方式
 set backspace=indent,eol,start
 
 " 禁止折行
-set nowrap
+" set nowrap
+
+" 光标举例顶端底端最少5行
+set scrolloff=5
 
 " 开启paste 防止外部粘贴出现格式混乱
 set pastetoggle=<F11>
@@ -95,25 +99,41 @@ call vundle#begin()
 " :PluginClean      - 删除插件，把安装插件对应行删除，然后执行这个命令即可
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tomasr/molokai' "主题配色
+" 效率
 Plugin 'scrooloose/nerdtree' "目录
 Plugin 'Xuyuanp/nerdtree-git-plugin' "git显示支持
 Plugin 'majutsushi/tagbar' "tagbar
-Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
-Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
-Plugin 'SirVer/ultisnips' "重复内容 模板补全 git clone https://github.com/honza/vim-snippets.git snp && mv snp/UltiSnips ~/.vim/bundle/ultisnips/usp && rm -rf snp
+
+" 显示&颜色
 Plugin 'posva/vim-vue' " Vue 高亮插件
 Plugin 'mhinz/vim-startify' "欢迎页面
+Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
+Plugin 'tomasr/molokai' "主题配色
+Plugin 'ryanoasis/vim-devicons' "添加文件图标
+Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
+
+" 便捷
+Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
+Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
+
+" 补全
+Plugin 'asins/vim-dict' "字典补全<C-k>
 Plugin 'othree/html5.vim' " HTML5 自动补全
 Plugin 'jiangbai333/vim-javacomplete2' " Java 自动补全
+Plugin 'SirVer/ultisnips' "重复内容 模板补全 git clone https://github.com/honza/vim-snippets.git snp && mv snp/UltiSnips ~/.vim/bundle/ultisnips/usp && rm -rf snp
 
-Plugin 'tpope/vim-fugitive' " GIT
+" GIT
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/gv.vim'
 
-Plugin 'ryanoasis/vim-devicons' "添加文件图标
-Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
-Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
+" markdown
+Plugin 'gabrielelana/vim-markdown'
+
+" vim wiki
+"Plugin 'vimwiki/vimwiki'
+"Plugin 'mattn/calendar-vim'
+
 "Plugin 'prettier/vim-prettier' "代码美化
 "Plugin 'ervandew/screen' " screen 分屏 存在使用缺陷，暂时禁用
 
@@ -157,4 +177,7 @@ if filereadable(expand($SCRIPTS_JAVACOMPILE))
     source $SCRIPTS_JAVACOMPILE
 endif
 
+if filereadable(expand($SCRIPTS_JAVADEBUG))
+    source $SCRIPTS_JAVADEBUG
+endif
 "autocmd BufWritePost $MYVIMPLUGIN source $MYVIMPLUGIN
