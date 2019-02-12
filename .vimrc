@@ -111,10 +111,13 @@ Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
 Plugin 'tomasr/molokai' "主题配色
 Plugin 'ryanoasis/vim-devicons' "添加文件图标
 Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
+Plugin 'gorodinskiy/vim-coloresque' " 颜色
 
 " 便捷
 Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
 Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
+Plugin 'jiangmiao/auto-pairs' "{[('
+Plugin 'tpope/vim-surround' "成对操作对称标签 https://github.com/tpope/vim-surround
 
 " 补全
 Plugin 'asins/vim-dict' "字典补全<C-k>
@@ -128,7 +131,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/gv.vim'
 
 " markdown
-Plugin 'gabrielelana/vim-markdown'
+"Plugin 'iamcco/markdown-preview.vim' "markdown实时预览 https://github.com/iamcco/markdown-preview.vim
+"Plugin 'gabrielelana/vim-markdown'
+
+" 搜索
+Plugin 'easymotion/vim-easymotion'
 
 " vim wiki
 "Plugin 'vimwiki/vimwiki'
