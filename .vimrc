@@ -181,3 +181,7 @@ if filereadable(expand($SCRIPTS_JAVADEBUG))
     source $SCRIPTS_JAVADEBUG
 endif
 "autocmd BufWritePost $MYVIMPLUGIN source $MYVIMPLUGIN
+
+" posva/vim-vue 文件检测
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
