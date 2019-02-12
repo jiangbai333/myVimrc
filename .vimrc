@@ -135,7 +135,7 @@ Plugin 'junegunn/gv.vim'
 "Plugin 'gabrielelana/vim-markdown'
 
 " 搜索
-Plugin 'easymotion/vim-easymotion'
+Plugin 'easymotion/vim-easymotion' "快速搜索 https://github.com/easymotion/vim-easymotion
 
 " vim wiki
 "Plugin 'vimwiki/vimwiki'
