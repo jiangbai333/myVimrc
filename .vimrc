@@ -112,6 +112,7 @@ Plugin 'tomasr/molokai' "主题配色
 Plugin 'ryanoasis/vim-devicons' "添加文件图标
 Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
 Plugin 'gorodinskiy/vim-coloresque' " 颜色
+Plugin 'editorconfig/editorconfig-vim' " editorconfig
 
 " 便捷
 Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
