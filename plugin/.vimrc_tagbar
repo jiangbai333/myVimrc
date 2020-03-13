@@ -7,9 +7,9 @@ nmap <F3> :TagbarToggle<CR>
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',
     \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
+        \ 'h:标题1',
+        \ 'i:标题2',
+        \ 'k:标题3'
     \ ]
 \ }
 
@@ -20,5 +20,23 @@ let g:tagbar_type_css = {
         \ 'c:classes',
         \ 's:selectors',
         \ 'i:identities'
+    \ ]
+\ }
+
+let g:tagbar_type_javascript = {
+	\ 'ctagstype' : 'javascript',
+    \ 'kinds'     : [
+        \ 'A:arrays',
+        \ 'P:properties',
+        \ 'T:tags',
+        \ 'O:objects',
+        \ 'G:generator functions',
+        \ 'F:functions',
+        \ 'C:constructors/classes',
+        \ 'M:methods',
+        \ 'V:variables',
+        \ 'I:imports',
+        \ 'E:exports',
+        \ 'S:styled components',
     \ ]
 \ }

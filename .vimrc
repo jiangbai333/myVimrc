@@ -35,7 +35,7 @@ let $SCRIPTS_JAVADEBUG= "~/.vim/rc/scripts/.vimrc_javadebug"
 " 开启文件类型检测
 filetype on
 
-"set encoding=utf-8
+set encoding=utf8
 
 "set fileencodings=utf-8,chinese,latin-1
 
@@ -62,7 +62,7 @@ set backspace=indent,eol,start
 set scrolloff=5
 
 " 开启paste 防止外部粘贴出现格式混乱
-set pastetoggle=<F11>
+set pastetoggle=<F10>
 
 " 显示行号
 set nu
@@ -109,14 +109,14 @@ Plugin 'posva/vim-vue' " Vue 高亮插件
 Plugin 'mhinz/vim-startify' "欢迎页面
 Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
 Plugin 'tomasr/molokai' "主题配色
-Plugin 'ryanoasis/vim-devicons' "添加文件图标
 Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
 Plugin 'gorodinskiy/vim-coloresque' " 颜色
 Plugin 'editorconfig/editorconfig-vim' " editorconfig
+Plugin 'vim-airline/vim-airline'
 
 " 便捷
 Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
-Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
+Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释
 Plugin 'jiangmiao/auto-pairs' "{[('
 Plugin 'tpope/vim-surround' "成对操作对称标签 https://github.com/tpope/vim-surround
 
@@ -145,6 +145,7 @@ Plugin 'easymotion/vim-easymotion' "快速搜索 https://github.com/easymotion/v
 "Plugin 'prettier/vim-prettier' "代码美化
 "Plugin 'ervandew/screen' " screen 分屏 存在使用缺陷，暂时禁用
 
+Plugin 'ryanoasis/vim-devicons' "添加文件图标 需要在最后加载
 call vundle#end()
 filetype plugin indent on
 

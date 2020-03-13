@@ -1,6 +1,8 @@
 " 主题 颜色
 " https://github.com/tomasr/molokai
 
+syntax enable
+
 " 底色
 set background=dark
 
@@ -8,4 +10,4 @@ set background=dark
 colorschem molokai
 
 " 色域
-set t_Co=256
+"set t_Co=256

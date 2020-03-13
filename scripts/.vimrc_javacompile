@@ -1,11 +1,11 @@
 map <F5> :call CompileRun()<CR>
 imap <F5> <ESC>:call CompileRun()<CR>
 func! CompileRun()
-    
+
     let rootpath = getcwd()
     let classpath = getcwd(). "/src/"
     let targetpath = getcwd(). "/target/"
- 
+
     exec "cd %:p:h"
     if &filetype == 'c'
         exec "!g++ % -o %<"
@@ -13,15 +13,14 @@ func! CompileRun()
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
         exec "! ./%<"
-    elseif &filetype == 'java' 
+    elseif &filetype == 'java'
         exec "cd ". classpath
-        exec "!javac -d ". targetpath. " com/**.java" 
+        exec "!javac -d ". targetpath. " com/**.java"
         exec "!cd ". targetpath. " && java %<"
         exec "cd ". rootpath
     elseif &filetype == 'sh'
         :!./%
     endif
 endfunc
-
 
 
