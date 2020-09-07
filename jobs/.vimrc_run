@@ -1,0 +1,33 @@
+function Handle(channel, msg)
+    silent put =a:msg
+endfunction
+
+function Run_project()
+    silent exec 'botright 10 split  -Terminal-'
+    let last_buffer = bufnr("-Terminal-")
+    setlocal nomodifiable
+    setlocal buflisted
+    setlocal bufhidden=delete
+    setlocal buftype=nofile
+    setlocal noswapfile
+    setlocal nowrap
+
+    if filereadable("pom.xml") && filereadable("mvnw")
+        let g:springbootjob = job_start(['mvn',  'clean', 'spring-boot:run'], {'err_io': 'buffer', 'err_buf': last_buffer, 'err_modifiable': 0, 'out_io': 'buffer', 'out_buf': last_buffer, 'out_modifiable': 0})
+    elseif filereadable("package.json")
+        let g:nodejob = job_start(['npm',  'run', 'serve'], {'err_io': 'buffer', 'err_buf': last_buffer, 'err_modifiable': 0, 'out_io': 'buffer', 'out_buf': last_buffer, 'out_modifiable': 0})
+    endif
+    "let g:testjob = job_start(['mvn', 'spring-boot:run'], {'callback': 'Handle'})
+    silent exec 'wincmd p'
+endfunction
+
+function Stop_project()
+    echo filereadable("pom.xml")
+    if filereadable("pom.xml") && filereadable("mvnw")
+        silent echo job_stop(g:springbootjob)
+    elseif filereadable("package.json")
+        silent echo job_stop(g:nodejob)
+    endif
+endfunction
+
+autocmd BufUnload -Terminal- exec "call Stop_project()"

@@ -1,5 +1,7 @@
 " Tagbar"
 let g:tagbar_width=35
+" 显示在NERDTree下面
+"let g:tagbar_vertical = 25
 let g:tagbar_autofocus=1
 nmap <F3> :TagbarToggle<CR>
 
@@ -40,3 +42,6 @@ let g:tagbar_type_javascript = {
         \ 'S:styled components',
     \ ]
 \ }
+
+" 自动打开
+"autocmd VimEnter * nested :TagbarOpen

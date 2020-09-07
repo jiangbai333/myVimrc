@@ -55,6 +55,8 @@ let g:NERDTreeShowIgnoredStatus = 1
 " autocmd vimenter * if !argc() | NERDTree | endif
 " 若为最后一个窗口 则自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" 自动打开 开启后 欢迎页面无法正常显示
+"autocmd vimenter * NERDTree
 
 " <F2> NERDTree 开关映射
 nmap <F2> :NERDTreeToggle<cr>
