@@ -1,11 +1,6 @@
-" Tagbar"
 let g:tagbar_width=35
-" 显示在NERDTree下面
-"let g:tagbar_vertical = 25
 let g:tagbar_autofocus=1
 nmap <F3> :TagbarToggle<CR>
-
-" parse markdown"
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',
     \ 'kinds' : [
@@ -14,7 +9,6 @@ let g:tagbar_type_markdown = {
         \ 'k:标题3'
     \ ]
 \ }
-
 
 let g:tagbar_type_css = {
 	\ 'ctagstype' : 'css',
@@ -42,6 +36,3 @@ let g:tagbar_type_javascript = {
         \ 'S:styled components',
     \ ]
 \ }
-
-" 自动打开
-"autocmd VimEnter * nested :TagbarOpen

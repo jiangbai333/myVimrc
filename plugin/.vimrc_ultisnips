@@ -1,20 +1,4 @@
-" ultisnips 模板补全
-" https://github.com/SirVer/ultisnips
-"
-" 模板仓库
-" https://github.com/honza/vim-snippets
-"
-" 模板安装
-" git clone https://github.com/honza/vim-snippets.git snp && mv snp/UltiSnips ~/.vim/bundle/ultisnips/usp && rm -rf snp
-
-" 模板补全 模板文件位置 ~/.vim/bundle/ultisnips/usp
-let g:UltiSnipsSnippetDirectories = ["usp"] 
-
-" 执行模板补全<leader><tab>
+let g:UltiSnipsSnippetDirectories = ["usp"]
 let g:UltiSnipsExpandTrigger = "<leader><tab>"
-
-" 模板补全内容插入后 跳转到下一可编辑项
 let g:UltiSnipsJumpForwardTrigger = "<leader><tab>"
-
-" 模板补全内容插入后 跳转到上一可编辑项
 let g:UltiSnipsJumpBackwardTrigger = "<leader><s-tab>"
