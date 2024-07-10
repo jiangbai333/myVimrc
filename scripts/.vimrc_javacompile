@@ -27,6 +27,9 @@ func! CompileRun()
         exec "!javac -cp '.:./src:./libs/*' -d ./target src/com/**.java"
         #exec "!java -cp ./src:./resource:./target/:./libs/* %:s?src\/??:r"
         exec "!java -cp '.:./resource:./target/:./libs/*' %:s?src\/??:r"
+        # exec "!javac -d ". targetpath. " com/**.java"
+        # exec "!cd ". targetpath. " && java %<"
+        # exec "cd ". rootpath
     elseif &filetype == 'sh'
         :!./%
     endif
