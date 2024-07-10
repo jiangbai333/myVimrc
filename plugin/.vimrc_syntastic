@@ -1,0 +1,24 @@
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 9
+" 自动拉起窗口,不需要手动调用:Errors
+let g:syntastic_auto_loc_list = 1
+" 打开文件的时候检查
+let g:syntastic_check_on_open = 1
+" 错误显示的字符
+let g:syntastic_error_symbol = '✗'
+" 警告显示的字符
+let g:syntastic_warning_symbol = '⚠'
+" 选择quick'fix
+let g:go_list_type = "quickfix"
+" 保存退出时不检查语法
+let g:syntastic_check_on_wq = 0
+
+" javascript 检查器
+let g:syntastic_javascript_checkers = ['eslint']
+
+" java 编译规则
+let g:syntastic_java_javac_args="-cp src/ -Djava.ext.dirs=libs/ -d target/"
+let g:syntastic_java_javac_delete_output = 1

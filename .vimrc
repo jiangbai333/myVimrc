@@ -4,13 +4,34 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+" n 普通模式
+" v 可视模式
+" i 插入模式
+" c 命令行模式
+" h 在帮助文件里，以上所有的模式
+" a 以上所有的模式
+" r 跳过 |hit-enter| 提示
+" A 在可视模式下自动选择
+set mouse=n
+
 " tab键自动补全
 " imap <silent> <tab> <C-X><C-O>
+" silent 表示静默执行，不提供回显
 " ` 键自动补全
 imap <silent> ` <C-X><C-O>
+imap <C-l> <ESC>la
 " 最优匹配
 set completeopt=longest,menu
 
+" 历史记录
+set history=1000
+" 命令行 高度 默认为1
+set cmdheight=1
+" 第n列 高亮 控制代码长度
+set colorcolumn=80
+
+" 当修改的行数 超过report指定的数字时 将会显示修改的行数
+set report=0
 "解决consle输出乱码
 "language messages zh_CN.utf-8
 
@@ -27,15 +48,24 @@ let $PLUGIN_COMMENTER = $PLUGIN_DIR.".vimrc_commenter"
 let $PLUGIN_ULTISNIPS = $PLUGIN_DIR.".vimrc_ultisnips"
 let $PLUGIN_HTML5 = $PLUGIN_DIR.".vimrc_html5"
 let $PLUGIN_JAVA = $PLUGIN_DIR.".vimrc_java"
+let $PLUGIN_SYNTASTIC = $PLUGIN_DIR.".vimrc_syntastic"
 
 " 编译脚本配置文件目录
 let $SCRIPTS_JAVACOMPILE = "~/.vim/rc/scripts/.vimrc_javacompile"
-let $SCRIPTS_JAVADEBUG= "~/.vim/rc/scripts/.vimrc_javadebug"
+let $SCRIPTS_JAVADEBUG = "~/.vim/rc/scripts/.vimrc_javadebug"
+
+" 自动增加文件描述
+let $COMMAND_TITLE = "~/.vim/rc/command/.vimrc_title"
+
+" job 管道通信
+let $JOBS_DIR = "~/.vim/rc/jobs/"
+let $JOBS_TERMINAL = $JOBS_DIR.".vimrc_terminal"
+let $JOBS_RUN = $JOBS_DIR.".vimrc_run"
 
 " 开启文件类型检测
 filetype on
 
-"set encoding=utf-8
+set encoding=utf8
 
 "set fileencodings=utf-8,chinese,latin-1
 
@@ -62,7 +92,7 @@ set backspace=indent,eol,start
 set scrolloff=5
 
 " 开启paste 防止外部粘贴出现格式混乱
-set pastetoggle=<F11>
+set pastetoggle=<F10>
 
 " 显示行号
 set nu
@@ -78,6 +108,19 @@ set cursorcolumn
 
 " 状态栏
 set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
+
+" 代码折行
+"set foldcolumn=5
+"set foldmethod=indent
+"set foldlevel=3
+"set foldenable
+
+" 显示键入内容
+"set showcmd
+
+" 显示空格
+set listchars=tab:»■,trail:■
+set list
 
 " 将制表符扩展为空格
 set expandtab
@@ -103,20 +146,21 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree' "目录
 Plugin 'Xuyuanp/nerdtree-git-plugin' "git显示支持
 Plugin 'majutsushi/tagbar' "tagbar
+"Plugin 'scrooloose/syntastic' "语法检查
 
 " 显示&颜色
 Plugin 'posva/vim-vue' " Vue 高亮插件
 Plugin 'mhinz/vim-startify' "欢迎页面
 Plugin 'nathanaelkane/vim-indent-guides' "显示缩进
 Plugin 'tomasr/molokai' "主题配色
-Plugin 'ryanoasis/vim-devicons' "添加文件图标
 Plugin 'cakebaker/scss-syntax.vim' " Scss语法标注
 Plugin 'gorodinskiy/vim-coloresque' " 颜色
 Plugin 'editorconfig/editorconfig-vim' " editorconfig
+Plugin 'vim-airline/vim-airline'
 
 " 便捷
 Plugin 'terryma/vim-multiple-cursors' "多游标，多行编辑
-Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释 
+Plugin 'scrooloose/nerdcommenter' "代码注释 ;cc添加注释 ;cu取消注释
 Plugin 'jiangmiao/auto-pairs' "{[('
 Plugin 'tpope/vim-surround' "成对操作对称标签 https://github.com/tpope/vim-surround
 
@@ -124,12 +168,17 @@ Plugin 'tpope/vim-surround' "成对操作对称标签 https://github.com/tpope/v
 Plugin 'asins/vim-dict' "字典补全<C-k>
 Plugin 'othree/html5.vim' " HTML5 自动补全
 Plugin 'jiangbai333/vim-javacomplete2' " Java 自动补全
+"Plugin 'artur-shaik/vim-javacomplete2' " Java 自动补全
+Plugin 'leafgarland/typescript-vim' " typescript
+
 Plugin 'SirVer/ultisnips' "重复内容 模板补全 git clone https://github.com/honza/vim-snippets.git snp && mv snp/UltiSnips ~/.vim/bundle/ultisnips/usp && rm -rf snp
 
+Plugin 'mattn/webapi-vim' " 配合vim-gist 管理gist
 " GIT
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/gv.vim'
+Plugin 'mattn/vim-gist'
 
 " markdown
 "Plugin 'iamcco/markdown-preview.vim' "markdown实时预览 https://github.com/iamcco/markdown-preview.vim
@@ -145,6 +194,7 @@ Plugin 'easymotion/vim-easymotion' "快速搜索 https://github.com/easymotion/v
 "Plugin 'prettier/vim-prettier' "代码美化
 "Plugin 'ervandew/screen' " screen 分屏 存在使用缺陷，暂时禁用
 
+Plugin 'ryanoasis/vim-devicons' "添加文件图标 需要在最后加载
 call vundle#end()
 filetype plugin indent on
 
@@ -181,6 +231,10 @@ if filereadable(expand($PLUGIN_JAVA))
     source $PLUGIN_JAVA
 endif
 
+if filereadable(expand($PLUGIN_SYNTASTIC))
+    source $PLUGIN_SYNTASTIC
+endif
+
 if filereadable(expand($SCRIPTS_JAVACOMPILE))
     source $SCRIPTS_JAVACOMPILE
 endif
@@ -188,8 +242,26 @@ endif
 if filereadable(expand($SCRIPTS_JAVADEBUG))
     source $SCRIPTS_JAVADEBUG
 endif
+
+if filereadable(expand($COMMAND_TITLE))
+    source $COMMAND_TITLE
+endif
+
+if filereadable(expand($JOBS_TERMINAL))
+    source $JOBS_TERMINAL
+endif
+
+if filereadable(expand($JOBS_RUN))
+    source $JOBS_RUN
+endif
 "autocmd BufWritePost $MYVIMPLUGIN source $MYVIMPLUGIN
 
+map <F7> :call Run_project()<CR>
 " posva/vim-vue 文件检测
 autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript.css
+" 自动语法检查 排除html
+"autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
+" 自动增加文件描述 需要NERDTree提供钩子
+"autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"

@@ -1,11 +1,20 @@
+" java项目
+" project/
+"   src/
+"       com/
+"   target/
+"   libs/
+"   target 为编译后class路径
+"   src 为源码路径 所有源码需在com包下
+"   libs 为第三方类库
 map <F5> :call CompileRun()<CR>
 imap <F5> <ESC>:call CompileRun()<CR>
 func! CompileRun()
-    
+
     let rootpath = getcwd()
-    let classpath = getcwd(). "/src/"
+    let classpath = getcwd()
     let targetpath = getcwd(). "/target/"
- 
+
     exec "cd %:p:h"
     if &filetype == 'c'
         exec "!g++ % -o %<"
@@ -13,15 +22,12 @@ func! CompileRun()
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
         exec "! ./%<"
-    elseif &filetype == 'java' 
+    elseif &filetype == 'java'
         exec "cd ". classpath
-        exec "!javac -d ". targetpath. " com/**.java" 
-        exec "!cd ". targetpath. " && java %<"
-        exec "cd ". rootpath
+        exec "!javac -cp '.:./src:./libs/*' -d ./target src/com/**.java"
+        #exec "!java -cp ./src:./resource:./target/:./libs/* %:s?src\/??:r"
+        exec "!java -cp '.:./resource:./target/:./libs/*' %:s?src\/??:r"
     elseif &filetype == 'sh'
         :!./%
     endif
 endfunc
-
-
-
