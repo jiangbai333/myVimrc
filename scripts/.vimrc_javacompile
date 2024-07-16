@@ -12,10 +12,19 @@ imap <F5> <ESC>:call CompileRun()<CR>
 func! CompileRun()
 
     let rootpath = getcwd()
-    let classpath = getcwd()
-    let targetpath = getcwd(). "/target/"
+    let targetpath = "./target"
+    let compilefile = "%:p:."
+    let runfile = "%:s?src\/??:r"
 
-    exec "cd %:p:h"
+    " 如果在项目主目录不存在target目录，则创建
+    " 如果存在src目录，则认为是项目主目录
+    if !isdirectory("target")
+        if isdirectory("src")
+            call mkdir("target")
+        endif
+    endif
+
+    "exec "cd %:p:h"
     if &filetype == 'c'
         exec "!g++ % -o %<"
         exec "! ./%<"
@@ -23,14 +32,9 @@ func! CompileRun()
         exec "!g++ % -o %<"
         exec "! ./%<"
     elseif &filetype == 'java'
-        exec "cd ". classpath
-        exec "!javac -cp '.:./src:./libs/*' -d ./target src/com/**.java"
-        #exec "!java -cp ./src:./resource:./target/:./libs/* %:s?src\/??:r"
-        exec "!java -cp '.:./resource:./target/:./libs/*' %:s?src\/??:r"
-        # exec "!javac -d ". targetpath. " com/**.java"
-        # exec "!cd ". targetpath. " && java %<"
-        # exec "cd ". rootpath
-    elseif &filetype == 'sh'
-        :!./%
+        exec "silent ! echo ''"
+        exec "silent ! echo javac -cp '.:./src:./libs/*' -d " .targetpath. " ". compilefile
+        exec "silent !javac -cp '.:./src:./libs/*' -d " .targetpath. " ". compilefile
+        exec "!java -cp '.:./resources:./target/:./libs/*' ".runfile
     endif
 endfunc
