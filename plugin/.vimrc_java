@@ -26,9 +26,10 @@
 " imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
 " imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
 " imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
+" let g:JavaComplete_JavaviLogLevel = 'debug'
 
-
-let g:JavaComplete_LibsPath='/Users/jiangbaichao/.m2/libs/apache/kafka/kafka-clients-2.0.0.jar:/Users/jiangbaichao/.m2/libs/logs/slf4j-api-1.7.25.jar:/Users/jiangbaichao/.m2/libs/alibaba/fastjson-1.2.58.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/commons-logging-1.2.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-aspects-5.2.9.RELEASE.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-context-5.2.12.RELEASE.ja:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-expression-5.2.12.RELEASE.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-aop-5.2.12.RELEASE.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-beans-5.2.12.RELEASE.jar:/Users/jiangbaichao/Desktop/code/java/study/spring/framework/libs/spring-core-5.2.12.RELEASE.jar'
+let libs = getcwd(). "/libs/*"
+let g:JavaComplete_LibsPath="/Users/jiangbaichao/.m2/libs/apache/kafka/kafka-clients-2.0.0.jar:/Users/jiangbaichao/.m2/libs/logs/slf4j-api-1.7.25.jar:/Users/jiangbaichao/.m2/libs/alibaba/fastjson-1.2.58.jar:". libs
 
 "为java文件开启自动检查
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
